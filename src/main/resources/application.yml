@@ -1,0 +1,31 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    # 设置所有请求路径的前缀
+    context-path: /api
+
+spring:
+  application:
+    name: user-center-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 新版驱动
+    url: jdbc:mysql://localhost:3306/yun?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+  session:
+    timeout: 86400
+  # session 失效时间
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false # 驼峰、下划线自动转映射
+  global-config:
+    db-config:
+      # 进行数据库中所有表的逻辑删除配置，还需要用 @TableLogic 来具体绑定到一个表
+      logic-delete-field: isDelete # 全局逻辑删除字段名（自己数据库中）
+      logic-delete-value: 1 # 逻辑已删除值。可选，默认值为 1
+      logic-not-delete-value: 0 # 逻辑未删除值。可选，默认值为 0
+
+
+

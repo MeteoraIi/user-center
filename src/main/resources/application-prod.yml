@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 新版驱动
+    # mysql 线上地址
+    url: jdbc:mysql://mysql5.sqlpub.com:3310/yun_prod?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: meteora
+    password: eDZSL4dP0mG99Dg5
+  session:
+    timeout: 86400

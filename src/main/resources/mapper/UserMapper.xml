@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里是 mybatis 的配置，mybatis 绑定对应的 Mapper 接口 -->
+<mapper namespace="com.yun.usercenterserver.mapper.UserMapper">
+    <!--  Mapper 接口与 Java 中的实体类绑定，就完成了数据库表与 Java 类的绑定  -->
+    <resultMap id="BaseResultMap" type="com.yun.usercenterserver.model.domain.User">
+        <!--  定义数据库表字段与实体类属性的映射关系  -->
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="userAccount" column="userAccount" jdbcType="VARCHAR"/>
+        <result property="avatarURL" column="avatarURL" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="TINYINT"/>
+        <result property="userPassword" column="userPassword" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="userStatus" column="userStatus" jdbcType="INTEGER"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+        <result property="userRole" column="userRole" jdbcType="INTEGER"/>
+        <result property="planetCode" column="planetCode" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--  下面还可以定义一些 SQL 语句， MyBatis 就是这样将 SQL 与 Java 分离，
+          通过xml文件集中管理 SQl 语句。 -->
+    <!--  定义一个 MyBatis 中的 SQL 片段，将常用的 SQL 语句片段提取出来复用  -->
+    <sql id="Base_Column_List">
+        id,username,userAccount,avatarURL,gender,userPassword,
+        phone,email,userStatus,createTime,updateTime,
+        isDelete,userRole,planetCode
+    </sql>
+</mapper>
